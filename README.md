@@ -45,7 +45,7 @@ Sinta-se à vontade para adicionar funcionalidades adicionais ou ajustar os grá
 
 ## Saiba mais neste artigo
 
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/levilucena/)]([[https://www.linkedin.com/in/levilucena/](https://www.linkedin.com/pulse/desenvolvendo-um-painel-interativo-com-r-shiny-e-plotly-levi-lucena-hiylf%3FtrackingId=Yg7LB4O3QVyY8WuMO3Teog%253D%253D/?trackingId=Yg7LB4O3QVyY8WuMO3Teog%3D%3D)](https://www.linkedin.com/pulse/desenvolvendo-um-painel-interativo-com-r-shiny-e-plotly-levi-lucena-hiylf%3FtrackingId=Yg7LB4O3QVyY8WuMO3Teog%253D%253D/?trackingId=Yg7LB4O3QVyY8WuMO3Teog%3D%3D))
+[Clique aqui para ler o artigo](https://www.linkedin.com/pulse/desenvolvendo-um-painel-interativo-com-r-shiny-e-plotly-levi-lucena-hiylf%3FtrackingId=Yg7LB4O3QVyY8WuMO3Teog%253D%253D/?trackingId=Yg7LB4O3QVyY8WuMO3Teog%3D%3D)
 
 ## Contribuição
 Contribuições são bem-vindas! Se você encontrar problemas ou quiser adicionar novos recursos, sinta-se à vontade para enviar pull requests.
