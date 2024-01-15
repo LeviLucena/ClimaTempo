@@ -45,7 +45,7 @@ Sinta-se à vontade para adicionar funcionalidades adicionais ou ajustar os grá
 
 ## Saiba mais neste artigo
 
-[Clique aqui para ler o artigo](https://www.linkedin.com/pulse/desenvolvendo-um-painel-interativo-com-r-shiny-e-plotly-levi-lucena-hiylf%3FtrackingId=Yg7LB4O3QVyY8WuMO3Teog%253D%253D/?trackingId=Yg7LB4O3QVyY8WuMO3Teog%3D%3D)
+[Clique aqui para ler o artigo]([https://www.linkedin.com/posts/levilucena_rshiny-datavisualization-dashboardinterativo-activity-7152347816072208384-ItgO?utm_source=share&utm_medium=member_desktop)
 
 ## Contribuição
 Contribuições são bem-vindas! Se você encontrar problemas ou quiser adicionar novos recursos, sinta-se à vontade para enviar pull requests.
