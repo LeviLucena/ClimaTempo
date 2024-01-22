@@ -45,7 +45,7 @@ Sinta-se à vontade para adicionar funcionalidades adicionais ou ajustar os grá
 
 ## Saiba mais neste artigo
 
-[Clique aqui para ler o artigo](https://www.linkedin.com/posts/levilucena_rshiny-datavisualization-dashboardinterativo-activity-7152347816072208384-ItgO?utm_source=share&utm_medium=member_desktop)
+[Clique aqui para ler meu artigo](https://www.linkedin.com/posts/levilucena_rshiny-datavisualization-dashboardinterativo-activity-7152347816072208384-ItgO?utm_source=share&utm_medium=member_desktop)
 
 ## Contribuição
 Contribuições são bem-vindas! Se você encontrar problemas ou quiser adicionar novos recursos, sinta-se à vontade para enviar pull requests.
