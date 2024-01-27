@@ -12,7 +12,7 @@ Este é um projeto para análise interativa de dados climáticos. Inclui gráfic
 2. Clone este repositório:
 
 ```bash
-git clone https://github.com/<seu_nome_do_usuário>/analise-clima-shiny-dashboard.git
+git clone https://github.com/LeviLucena/ClimaTempo.git
 ```
 
 1. Abra o RStudio e abra o projeto.
