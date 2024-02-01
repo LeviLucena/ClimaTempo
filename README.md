@@ -1,8 +1,6 @@
-# Desenvolva um painel interativo com R, shinydashboard, ggplot2, plotly, lubridate, dplyr.
-
 # Projeto Análise de Clima 
 
-Este é um projeto para análise interativa de dados climáticos. Inclui gráficos de linha, gráficos de barras, estatísticas mensais e anuais, e muito mais.
+Este é um projeto para análise interativa de dados climáticos, foi Desenvolvido em R, utilizando as bibliotecas shinydashboard, ggplot2, plotly, lubridate, dplyr. Inclui gráficos de linha, gráficos de barras, estatísticas mensais e anuais, e muito mais.
 
 ![image](https://github.com/LeviLucena/ClimaTempo/assets/34045910/2f946c68-d18b-479a-9a14-3c3d582cdcea)
 
