@@ -1,60 +1,126 @@
-# Projeto Análise de Clima 
+# ClimaTempo
 
-Este é um projeto para análise interativa de dados climáticos, foi Desenvolvido em R, utilizando as bibliotecas shinydashboard, ggplot2, plotly, lubridate, dplyr. Inclui gráficos de linha, gráficos de barras, estatísticas mensais e anuais, e muito mais.
+Dashboard meteorológico interativo desenvolvido em **R + Shiny**, com visual inspirado em aplicativos de clima profissionais. Exibe condições em tempo real (fictícias), previsão horária, previsão semanal, qualidade do ar, condições do mar, fase da lua, arco solar e muito mais — tudo sem gráficos tradicionais, construído inteiramente com HTML, CSS e SVG.
 
-![image](https://github.com/LeviLucena/ClimaTempo/assets/34045910/2f946c68-d18b-479a-9a14-3c3d582cdcea)
+---
 
-## Como Usar
+## Funcionalidades
 
-1. Certifique-se de ter o R e o RStudio instalados no seu computador.
-2. Clone este repositório:
+### Painel principal
+| Recurso | Descrição |
+|---|---|
+| **Hero dinâmico** | Temperatura, sensação térmica, condição atual, mín/máxima do dia, cobertura de nuvens e chuva acumulada. Fundo muda de cor conforme o clima |
+| **7 cards de métricas** | Umidade, ponto de orvalho, vento, chuva, pressão, índice UV e visibilidade |
+| **Arco nascer/pôr do sol** | SVG animado com posição real do sol baseada na hora atual |
+| **Fase da lua** | Calculada via período sinódico (29,53 dias); emoji dinâmico + barra de iluminação |
+| **Qualidade do ar (IQA)** | Índice com categoria (Bom → Perigoso) e barra de gradiente colorido |
+| **Previsão 24 horas** | Cards roláveis com ícone, temperatura e precipitação por hora |
+| **Barras de temperatura semanal** | Faixa mín–máx por dia em gradiente azul→vermelho |
+| **Condições do mar** | Altura das ondas, temperatura e estado (Calmo / Agitado / Muito agitado) |
+| **Vento** | Velocidade, direção com seta rotacionada e rajadas estimadas |
+| **Neve e gelo** | Acúmulo do dia, temperatura mínima e alerta de risco de gelo |
+
+### Interatividade
+| Recurso | Descrição |
+|---|---|
+| **Seletor de cidade** | 5 cidades brasileiras: São Paulo, Rio de Janeiro, Curitiba, Manaus e Florianópolis |
+| **Seletor de data** | Navegação entre os últimos 3 dias e próximos 7 dias |
+| **Modo comparação** | Exibe todas as cidades lado a lado em cards compactos |
+| **Download CSV** | Exporta os dados do dia e cidade selecionados |
+| **Modo claro/escuro** | Toggle no cabeçalho altera o tema via CSS custom properties |
+| **Auto-refresh** | Dados atualizam automaticamente a cada 5 minutos |
+
+### Animações e alertas
+| Recurso | Descrição |
+|---|---|
+| **Animação de chuva/neve/tempestade** | Canvas HTML5 com partículas geradas em JavaScript, ativado automaticamente pela condição do clima |
+| **Alertas climáticos** | Banner vermelho para condições severas (tempestade, UV extremo, geada, vendaval) |
+| **Toast de notificação** | Popup deslizante exibido ao detectar condição severa |
+
+---
+
+## Stack tecnológica
+
+| Camada | Tecnologia |
+|---|---|
+| Linguagem | R 4.x |
+| Framework web | [Shiny](https://shiny.posit.co/) + [bslib](https://rstudio.github.io/bslib/) (Bootstrap 5) |
+| Manipulação de dados | [dplyr](https://dplyr.tidyverse.org/), [lubridate](https://lubridate.tidyverse.org/) |
+| Visualização | HTML, CSS, SVG inline — **sem ggplot2 / plotly** |
+| Animações | JavaScript vanilla (Canvas API + MutationObserver) |
+| Ícones | [Font Awesome 6](https://fontawesome.com/) |
+
+---
+
+## Estrutura do projeto
+
+```
+ClimaTempo/
+├── data.R        # Geração de dados fictícios multi-cidade (11 dias, horário)
+├── ui.R          # Layout da interface (bslib page_fluid)
+├── server.R      # Lógica reativa: cálculos, renderUI, download, alertas
+└── www/
+    ├── style.css  # Tema dark/light, animações CSS, responsividade mobile
+    └── weather.js # Canvas de partículas, toast, toggle de tema
+```
+
+### `data.R`
+Gera um `data.frame` chamado `weather` com dados horários para 5 cidades, cobrindo 3 dias passados e 7 dias futuros a partir da execução. Colunas geradas:
+
+`DateTime`, `Date`, `Hora`, `Cidade`, `Temp`, `Sensacao`, `Umidade`, `VentoVel`, `VentoDir`, `Precip`, `Neve`, `Nuvem`, `Condicao`, `UV`, `Visib`, `Pressao`, `Onda`, `TempMar`, `PontoOrvalho`, `IQA`
+
+### `server.R`
+Contém todos os `renderUI` reativos, helpers de cálculo (fase da lua, arco solar, geração de alertas) e o `downloadHandler` para exportação CSV.
+
+---
+
+## Instalação e execução
+
+### Pré-requisitos
+- [R 4.x](https://cran.r-project.org/)
+- [RStudio](https://posit.co/download/rstudio-desktop/) *(recomendado)*
+
+### 1. Clone o repositório
 
 ```bash
 git clone https://github.com/LeviLucena/ClimaTempo.git
+cd ClimaTempo
 ```
 
-1. Abra o RStudio e abra o projeto.
-2. Instale as bibliotecas necessárias executando o seguinte código no console do RStudio:
+### 2. Instale os pacotes
 
-```bash
-install.packages(c("shinydashboard", "ggplot2", "plotly", "lubridate", "dplyr"))
+```r
+install.packages(c("shiny", "bslib", "dplyr", "lubridate"))
 ```
 
-Execute o aplicativo:
-```bash
-shiny::runApp()
+### 3. Execute o app
+
+```r
+shiny::runApp(".")
 ```
-Isso abrirá o painel de controle no seu navegador padrão.
 
-## Estrutura do Projeto
-ui.R: Define o layout da interface Shiny.
-server.R: Contém a lógica do servidor Shiny para processar os dados e criar gráficos interativos.
-data.R: Gera dados fictícios de clima para uso no aplicativo.
+Ou, no RStudio, abra qualquer arquivo `.R` do projeto e clique em **Run App**.
 
-## Personalizações
-Personalize a paleta de cores, layout e outros elementos ajustando os parâmetros nos scripts ui.R e server.R.
-Sinta-se à vontade para adicionar funcionalidades adicionais ou ajustar os gráficos conforme necessário.
+---
 
-## Galeria de Imagens
-![image](https://github.com/LeviLucena/ClimaTempo/assets/34045910/fe9ee2ee-8d9e-493d-9c9a-974c40d87036)
-![image](https://github.com/LeviLucena/ClimaTempo/assets/34045910/ba5fdfdb-fd00-404e-a0c4-16a217c8eb0f)
-![image](https://github.com/LeviLucena/ClimaTempo/assets/34045910/161bd7ab-9c98-4ddb-9cfe-ae3ef405c741)
-![image](https://github.com/LeviLucena/ClimaTempo/assets/34045910/a57db2bd-e3bd-4df5-9f5f-c242f432afb7)
+## Dados
 
-## Saiba mais neste artigo
+Os dados são **totalmente fictícios** e gerados proceduralmente via distribuições estatísticas (normal, Poisson) com semente fixa (`set.seed(42)`), garantindo reprodutibilidade. Os parâmetros por cidade (temperatura base, probabilidade de chuva) são ajustados para refletir o clima real de cada região de forma aproximada.
 
-[Clique aqui para ler meu artigo](https://www.linkedin.com/posts/levilucena_rshiny-datavisualization-dashboardinterativo-activity-7152347816072208384-ItgO?utm_source=share&utm_medium=member_desktop)
+---
 
 ## Contribuição
-Contribuições são bem-vindas! Se você encontrar problemas ou quiser adicionar novos recursos, sinta-se à vontade para enviar pull requests.
+
+Contribuições são bem-vindas. Abra uma *issue* para reportar problemas ou uma *pull request* para propor melhorias.
+
+---
 
 ## Licença
-Este projeto está licenciado sob a Licença MIT - consulte o arquivo LICENSE.md para mais detalhes.
 
-Esse é um exemplo básico, e você pode personalizá-lo conforme necessário. Certifique-se de revisar e adaptar conforme as necessidades específicas do seu projeto.
+Distribuído sob a [Licença MIT](LICENSE.md).
 
-## Autor: 
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/levilucena/)](https://www.linkedin.com/in/levilucena/)
+---
 
+## Autor
 
-
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Levi%20Lucena-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/levilucena/)
