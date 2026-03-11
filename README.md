@@ -2,6 +2,8 @@
 
 Dashboard meteorológico interativo desenvolvido em **R + Shiny**, com visual inspirado em aplicativos de clima profissionais. Exibe condições em tempo real (fictícias), previsão horária, previsão semanal, qualidade do ar, condições do mar, fase da lua, arco solar e muito mais — tudo sem gráficos tradicionais, construído inteiramente com HTML, CSS e SVG.
 
+<img width="1883" height="909" alt="image" src="https://github.com/user-attachments/assets/0d859bce-76db-4d62-9de7-e2e2e847ac0c" />
+
 ---
 
 ## Funcionalidades
